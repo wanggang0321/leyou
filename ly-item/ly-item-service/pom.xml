@@ -55,16 +55,29 @@
             <artifactId>mysql-connector-java</artifactId>
             <version>${mysql.version}</version>
         </dependency>
+
+        <!--是springboot提供的微服务检测接口，默认对外提供几个接口：/info-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper-spring-boot-starter</artifactId>
+            <version>1.3.0</version>
+        </dependency>
+
         <dependency>
             <groupId>com.leyou.service</groupId>
             <artifactId>ly-item-interface</artifactId>
             <version>${leyou.latest.version}</version>
         </dependency>
 
-        <!--是springboot提供的微服务检测接口，默认对外提供几个接口：/info-->
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-actuator</artifactId>
+            <groupId>com.leyou.common</groupId>
+            <artifactId>ly-common</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
         </dependency>
 
     </dependencies>
