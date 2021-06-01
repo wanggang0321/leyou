@@ -13,6 +13,7 @@
         <module>ly-common</module>
         <module>ly-assist</module>
         <module>ly-upload</module>
+        <module>leyou-search</module>
     </modules>
     <packaging>pom</packaging>
 
