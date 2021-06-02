@@ -24,4 +24,8 @@ public class CategoryService {
         return categoryMapper.select(record);
     }
 
+    public List<Category> queryByBrandId(Long bid) {
+        return this.categoryMapper.queryByBrandId(bid);
+    }
+
 }
