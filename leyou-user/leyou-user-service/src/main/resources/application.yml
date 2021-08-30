@@ -20,4 +20,4 @@ eureka:
     lease-expiration-duration-in-seconds: 15
 
 mybatis:
-  type-aliases-package: com.leyou.user.pojo
+  type-aliases-package: com.leyou.user.poj

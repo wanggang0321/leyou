@@ -4,10 +4,12 @@ spring:
   application:
     name: sms-service
   rabbitmq:
-    host: 192.168.56.101
+    host: 192.168.8.91
     username: leyou
     password: leyou
     virtual-host: /leyou
+  redis:
+    host: 192.168.8.71
 leyou:
   sms:
     accessKeyId: JWffwFJIwada # 你自己的accessKeyId

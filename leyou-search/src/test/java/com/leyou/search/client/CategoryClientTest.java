@@ -5,7 +5,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.Arrays;
@@ -26,8 +25,8 @@ public class CategoryClientTest {
     @Test
     public void testQueryCategories() {
         List<Long> idList = Arrays.asList(1l, 2l, 3l);
-        ResponseEntity<List<String>> resp = categoryClient.queryNameByIds(idList);
-
+        List<String> names = categoryClient.queryNameByIds(idList);
+        names.forEach(System.out::println);
     }
 
 }
