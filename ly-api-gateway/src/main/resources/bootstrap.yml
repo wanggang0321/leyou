@@ -1,0 +1,47 @@
+spring:
+  cloud:
+    config:
+      # 对应 {label} 部分，即 Git 的分支
+      label: master
+      # 对应 {application} 部分
+      name: system
+      # 对应 {profile} 部分
+      profile: dev
+      discovery:
+        # 开启 Config 服务发现与注册
+        enabled: true
+        # 指定 server
+        service-id: ly-config
+      #profile: dev # 指定配置文件的环境
+
+eureka:
+  instance:
+    prefer-ip-address: true
+    ip-address: 127.0.0.1
+    instance-id: ${spring.application.name}:${server.port}
+  client:
+    service-url:
+      defaultZone: http://admin:admin@127.0.0.1:10086/eureka
+    registry-fetch-interval-seconds: 5
+zuul:
+  retryable: true
+  prefix: /api # 添加路由前缀
+  routes:
+    item-service: /item/** # 将商品微服务映射到/item/**
+    user-service: /user/** # 用户微服务
+    auth-service: /auth/** # 授权中心微服务
+  ignored-services:
+    - upload-service # 忽略upload-service服务
+ribbon:
+  onnectTimeout: 250 # 连接超时时间(ms)
+  ReadTimeout: 2000 # 通信超时时间(ms)
+  OkToRetryOnAllOperations: true # 是否对所有操作重试
+  MaxAutoRetriesNextServer: 1 # 同一服务不同实例的重试次数
+  MaxAutoRetries: 1 # 同一实例的重试次数
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMillisecond: 10000 # 熔断超时时长：10000ms

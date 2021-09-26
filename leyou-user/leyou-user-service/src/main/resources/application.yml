@@ -1,0 +1,12 @@
+# 端口
+server:
+  port: 8085
+spring:
+  application:
+    # 应用名称
+    name: user-service
+  datasource:
+    url: jdbc:mysql://${DB_HOST:127.0.0.1:3306}/${DB_NAME:leyou}?autoReconnect=true&allowMultiQueries=true&useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8
+    username: root
+    password: ${DB_PASSWORD}
+    driver-class-name: com.mysql.cj.jdbc.Driver

@@ -1,0 +1,47 @@
+#
+server:
+  port: 10000
+
+#
+spring:
+  application:
+    name: ly-config
+  security:
+    basic:
+      enabled: true
+    user:
+      name: admin
+      password: admin
+  cloud:
+    config:
+      server:
+        git:
+          # 远程github仓库
+          uri: https://gitee.com/wanggang_0321/ly-config
+          username: wanggang_0321
+          password: ${GIT_PASSWORD}
+          search-paths: /**  # 指定搜索根路径下的所有目录，若有多个路径使用逗号隔开
+          #uri: D:\eclipse_workspace\springcloud\springcloud-config-server\src\main\resources\configs # 本地仓库
+eureka:
+  instance:
+    prefer-ip-address: true # 使用 ip 代替实例名
+    ip-address: 127.0.0.1
+    instance-id: ${spring.application.name}:${server.port} # 实例的 ID 规则
+  client:
+    service-url:
+      defaultZone: http://admin:admin@127.0.0.1:10086/eureka
+    registry-fetch-interval-seconds: 5
+
+# actuator
+#http://localhost:5001/actuator
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+# 打印log日志
+logging:
+  level:
+    root: warn
+    org.springframework.cloud: debug

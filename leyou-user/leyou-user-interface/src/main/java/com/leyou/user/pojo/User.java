@@ -17,14 +17,14 @@ public class User {
 
     private String username;// 用户名
 
-    @JsonIgnore
+    @JsonIgnore // 在json序列化时，不会返回
     private String password;// 密码
 
     private String phone;// 电话
 
     private Date created;// 创建时间
 
-    @JsonIgnore
+    @JsonIgnore // 在json序列化时，不会返回
     private String salt;// 密码的盐值
 
     public Long getId() {

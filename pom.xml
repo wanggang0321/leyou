@@ -21,7 +21,6 @@
         <module>ly-config</module>
         <module>ly-cart</module>
         <module>ly-order</module>
-        <module>ly-order-service</module>
     </modules>
     <packaging>pom</packaging>
 

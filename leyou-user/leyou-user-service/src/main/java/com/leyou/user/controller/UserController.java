@@ -15,6 +15,9 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    /**
+     * 校验数据是否可用
+     */
     @GetMapping("check/{data}/{type}")
     public ResponseEntity<Boolean> checkUserData(@PathVariable("data") String data, @PathVariable(value = "type") Integer type) {
         Boolean boo = this.userService.checkData(data, type);
