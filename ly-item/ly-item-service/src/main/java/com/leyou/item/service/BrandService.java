@@ -5,10 +5,10 @@ import com.github.pagehelper.PageHelper;
 import com.leyou.common.pojo.PageResult;
 import com.leyou.item.mapper.BrandMapper;
 import com.leyou.item.pojo.Brand;
-import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.StringUtils;
 import tk.mybatis.mapper.entity.Example;
 
 import java.util.List;
@@ -30,11 +30,11 @@ public class BrandService {
         PageHelper.startPage(page, rows);
         // 过滤
         Example example = new Example(Brand.class);
-        if (StringUtils.isNotBlank(key)) {
+        if (!StringUtils.isEmpty(key)) {
             example.createCriteria().andLike("name", "%" + key + "%")
                     .orEqualTo("letter", key);
         }
-        if (StringUtils.isNotBlank(sortBy)) {
+        if (!StringUtils.isEmpty(sortBy)) {
             // 排序
             String orderByClause = sortBy + (desc ? " DESC" : " ASC");
             example.setOrderByClause(orderByClause);
